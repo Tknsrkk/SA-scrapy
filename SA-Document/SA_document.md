@@ -15,10 +15,10 @@ While the development is open-source, the amount of documentation about contribu
 
 ## Table of contents
 
-- [Introduction](#Introduction)
-- [Stakeholders](#Stakeholders)
-- [Context View](#Context-view)
-- [Development View](#Development-view)
+- [1.Introduction](#Introduction)
+- [2.Stakeholders](#Stakeholders)
+- [3.Context View](#Context-view)
+- [4.Development View](#Development-view)
 
 ## Introduction
 
