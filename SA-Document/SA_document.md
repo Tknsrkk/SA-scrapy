@@ -19,9 +19,14 @@ While the development is open-source, the amount of documentation about contribu
 - [2.Stakeholders](#Stakeholders)
   - [2.1 Overview](#Overview)
   - [2.2 Quality Attributes](#Quality-Attributes)
-  - [2.3 Power-Interest-Grid](#Power-Interest-Grid)
+  - [2.3 Power Interest Grid](#Power-Interest-Grid)
 - [3.Context View](#Context-view)
+  - [3.1 System Scope](#System-Scope)
+  - [3.2 Client](#Client)
+  - [3.3 External Entities](#External-Entities)
 - [4.Development View](#Development-view)
+  - [4.1 Code-Organization](#Code-Organization)
+  - [4.2 
 
 ## Introduction
 
@@ -134,7 +139,7 @@ A context view describes the relationships, dependencies, and the interactions b
 
 ![Figure 1 overall structure](https://i.postimg.cc/w3KDFd2Q/1.png)
 
-### System Scope
+### System-Scope
 Scrapy is an open source and collaborative framework for extracting the data you need from websites.The client can use this framework in a fast, simple, yet extensible way[[1]]().It is originally designed for page fetching (more specifically, Web fetching) and can aslo be used to retrieve data returned by the API (for example, [Amazon Associates Web Services](http://aws.amazon.com/associates/)) or general purpose Web crawlers.
 ### Client
 The attraction is that Scrapy is a framework that anyone can easily modify to suit their needs.Scrapy features a fast, high-level screen scraping and web scraping framework developed in Python for scraping web sites and extracting structured data from pages.Scrapy has a wide range of applications, including data mining, monitoring and automated testing. Reactive updates are dead simple.
@@ -146,7 +151,7 @@ The attraction is that Scrapy is a framework that anyone can easily modify to su
 * shell mode is supported to facilitate independent debugging
 * write middleware to make it easier to write a uniform filter
 * store the database by pipeline
-### External Entities
+### External-Entities
 The figure below shows the context view of Scrapy.
 
 ![](https://s2.ax1x.com/2019/10/01/uUrjVx.png)
@@ -175,7 +180,7 @@ The Scrapy shell is an interactive shell where you can try and debug your scrapi
 #### wild middlewares for handling
 Scrapy privides wide range of built-in extensions and middlewares for handling:cookies and session handling, http compression,authentication, caching, user-agent spoofing, robots.txt, crawl depth restriction and more.<a href="#ref_dev_4">[6]</a>
 
-### Code Organization
+### Code-Organization
 The following figure shows the source code organization of scrapy.
 ![Figure1 code organization of scrapy](https://upload-images.jianshu.io/upload_images/17534427-80fbf5f00989de4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 #### Test files
@@ -187,7 +192,7 @@ The documentation section contains codes used to demonstrate and generate the do
 #### Others
 Scrapy has other files, such as version log files, contributor log files, and relatively independent script files.
 
-### Module Organization
+### Module-Organization
 This section focuses on the main modules of scrapy and their interactions.
 #### Modules introduction
 ##### Scrapy Engine
