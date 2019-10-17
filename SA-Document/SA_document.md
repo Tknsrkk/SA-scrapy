@@ -26,7 +26,7 @@ While the development is open-source, the amount of documentation about contribu
   - [3.3 External Entities](#External-Entities)
 - [4.Development View](#Development-view)
   - [4.1 Code-Organization](#Code-Organization)
-  - [4.2 
+  - [4.2 Module-Organization](#Module-Organization)
 
 ## Introduction
 
