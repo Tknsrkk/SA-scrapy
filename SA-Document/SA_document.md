@@ -18,6 +18,7 @@ While the development is open-source, the amount of documentation about contribu
 - [1.Introduction](#Introduction)
 - [2.Stakeholders](#Stakeholders)
   - [2.1 Overview](#Overview)
+  - [2.2 Quality Attributes](#Quality Attributes)
 - [3.Context View](#Context-view)
 - [4.Development View](#Development-view)
 
