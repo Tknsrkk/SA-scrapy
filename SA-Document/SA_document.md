@@ -18,7 +18,8 @@ While the development is open-source, the amount of documentation about contribu
 - [1.Introduction](#Introduction)
 - [2.Stakeholders](#Stakeholders)
   - [2.1 Overview](#Overview)
-  - [2.2 Quality Attributes](#Quality Attributes)
+  - [2.2 Quality Attributes](#Quality-Attributes)
+  - [2.3 Power-Interest-Grid](#Power-Interest-Grid)
 - [3.Context View](#Context-view)
 - [4.Development View](#Development-view)
 
@@ -87,7 +88,7 @@ The following figure shows the stakeholders mentioned above, and it proides a ch
 
 *Figure 1: Stakeholders of Scrapy*
 
-### Quality Attributes
+### Quality-Attributes
 
 Scrapy is a fast and powerful scraping and web crawling framework. So, there are a few of the quality attributes which is of vital importance. 
 
@@ -103,7 +104,7 @@ Scrapy is a fast and powerful scraping and web crawling framework. So, there are
 
     Because people will have their certain purpose of their works, and it is impossible to satisfy everyone. So, Scrapy need modifiability to cater for all tastes. Scrapy leaves many interfaces for users to custom their own features. And users can use this easy and useful interfaces to accomplish their own works.
     
-### Power Interest Grid
+### Power-Interest-Grid
 
 The following figure shows the Power Interest Grid. Power Interest Grid contains the main stakeholder categories and more detailed explanation will be listed.
 
