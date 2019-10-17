@@ -85,6 +85,22 @@ The following figure shows the stakeholders mentioned above, and it proides a ch
 
 *Figure 1: Stakeholders of Scrapy*
 
+### Quality Attributes
+
+Scrapy is a fast and powerful scraping and web crawling framework. So, there are a few of the quality attributes which is of vital importance. 
+
+-   Performance
+
+    As the Scrapy development team members want, Scrapy should be fast and powerful. In this term, the performance of Scrapy is the main quality attribute which developers focus on. And great performance can provide a channel through which users can have a better feel of it. Moreover, this can let Scrapy out among those competitors.
+
+-   Usability
+
+    Scrapy play an important role in web crawling, which means they need to be easy to use. Without that, Scrapy can not be appriciated by users, who are always wondering to have a simple way to make things done. In some certain cases, usability is considered to be essential such as when people has little time to accomplish something. So, usability is also an important quality attribute.
+
+-   Modifiability
+
+    Because people will have their certain purpose of their works, and it is impossible to satisfy everyone. So, Scrapy need modifiability to cater for all tastes. Scrapy leaves many interfaces for users to custom their own features. And users can use this easy and useful interfaces to accomplish their own works.
+    
 ### Power Interest Grid
 
 The following figure shows the Power Interest Grid. Power Interest Grid contains the main stakeholder categories and more detailed explanation will be listed.
