@@ -15,13 +15,13 @@ While the development is open-source, the amount of documentation about contribu
 
 ## Table of contents
 
-- [1.Introduction](#1.Introduction)
-- [2.Stakeholders](#2.Stakeholders)
-  - [2.1Overview](#2.1Overview)
+- [1.Introduction](#Introduction)
+- [2.Stakeholders](#Stakeholders)
+  - [2.1 Overview](#Overview)
 - [3.Context View](#Context-view)
 - [4.Development View](#Development-view)
 
-## 1.Introduction
+## Introduction
 
 As we enter the era of big data, data analysis and data collection technologies become particularly important. With the demand of an easy to collect data, scrapy arises.Scrapy is an application framework written to crawl web site data and extract structural data. It can be used in a series of programs including data mining, information processing or storing historical data.It is originally designed for page fetching (more specifically, Web fetching) and can be used to retrieve data returned by the API (for example, Amazon Associates Web Services) or general purpose Web crawlers.
 
@@ -31,13 +31,13 @@ As we enter the era of big data, data analysis and data collection technologies 
 
 This document gives an overview of the overarching architecture of the scrapy project. It sets the scenes by introducing the project and discussing its stakeholders. It then takes on different viewpoints and perspectives as defined by Rozanski and Woods  to analyse scrapy's performance, in addition to discussing the technical debt hidden in the depths of the codebase.
 
-## 2.Stakeholders
+## Stakeholders
 
 >   A stakeholder is a member of "groups without whose support the organization would cease to exist".
 
 As the definition above, stakeholders in Scrapy are people who are interested in and influence Scrapy. More specificly, stakeholders can adivce to it and make some influence on Scrapy's policy and so on. So, we will firstly have a glimpse on the overview of the stakeholders which includes developers, maintainers, users and other kinds of stakeholders which are of vital importance. After we have had an overview of those kinds of stakeholdes, we will have a deeper appreciation of those stakeholders and try to give the Power Interest Graph of Scrapy in which we will analyze the reason.<a href="#ref_sta1">[1]</a>
 
-### 2.1Overview 
+### Overview 
 
 -   Acquirers
     
@@ -86,7 +86,7 @@ The following figure shows the stakeholders mentioned above, and it proides a ch
 
 *Figure 1: Stakeholders of Scrapy*
 
-### 2.2 Quality Attributes
+### Quality Attributes
 
 Scrapy is a fast and powerful scraping and web crawling framework. So, there are a few of the quality attributes which is of vital importance. 
 
@@ -102,7 +102,7 @@ Scrapy is a fast and powerful scraping and web crawling framework. So, there are
 
     Because people will have their certain purpose of their works, and it is impossible to satisfy everyone. So, Scrapy need modifiability to cater for all tastes. Scrapy leaves many interfaces for users to custom their own features. And users can use this easy and useful interfaces to accomplish their own works.
     
-### 2.3 Power Interest Grid
+### Power Interest Grid
 
 The following figure shows the Power Interest Grid. Power Interest Grid contains the main stakeholder categories and more detailed explanation will be listed.
 
