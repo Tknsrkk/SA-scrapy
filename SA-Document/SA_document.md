@@ -113,7 +113,7 @@ The following figure shows the Power Interest Grid. Power Interest Grid contains
 
 A context view describes the relationships, dependencies, and the interactions between the system and its environment.Many architecture descriptions focus on views that model the system’s internal structures, data elements, interactions, and operation. Architects tend to assume that the “outward-facing” information — the system’s runtime context, its scope and requirements, and so forth – is clearly and unambiguously defined elsewhere. However, you often need to include a definition of the system’s context as part of your architectural description.<a href="#ref_con1">[2]</a>
 
-![Figure 1 overall structure](https://imgchr.com/i/Kk5BB8)
+![Figure 1 overall structure](https://i.postimg.cc/w3KDFd2Q/1.png)
 
 ### System Scope
 Scrapy is an open source and collaborative framework for extracting the data you need from websites.The client can use this framework in a fast, simple, yet extensible way[[1]]().It is originally designed for page fetching (more specifically, Web fetching) and can aslo be used to retrieve data returned by the API (for example, [Amazon Associates Web Services](http://aws.amazon.com/associates/)) or general purpose Web crawlers.
