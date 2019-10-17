@@ -17,7 +17,7 @@ While the development is open-source, the amount of documentation about contribu
 
 - [1.Introduction](#1.Introduction)
 - [2.Stakeholders](#2.Stakeholders)
-  - [2.1.Overview](#2.1.Overview)
+  - [2.1Overview](#2.1Overview)
 - [3.Context View](#Context-view)
 - [4.Development View](#Development-view)
 
@@ -37,7 +37,7 @@ This document gives an overview of the overarching architecture of the scrapy pr
 
 As the definition above, stakeholders in Scrapy are people who are interested in and influence Scrapy. More specificly, stakeholders can adivce to it and make some influence on Scrapy's policy and so on. So, we will firstly have a glimpse on the overview of the stakeholders which includes developers, maintainers, users and other kinds of stakeholders which are of vital importance. After we have had an overview of those kinds of stakeholdes, we will have a deeper appreciation of those stakeholders and try to give the Power Interest Graph of Scrapy in which we will analyze the reason.<a href="#ref_sta1">[1]</a>
 
-### 2.1.Overview 
+### 2.1Overview 
 
 -   Acquirers
     
