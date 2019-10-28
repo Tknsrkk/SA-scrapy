@@ -16,6 +16,6 @@ As we can see, the Downloader is the narrowest part of the whole program.So when
 ![KgThdA.png](https://s2.ax1x.com/2019/10/28/KgThdA.png)
 
 ### Compare to other frame
-| name | language | Pluges | difficulty | distributed? | crawl js? | Others |
-|--------------------|--------------------|
-| Nutch | Java | hard to develop,even change the frame | hard | support | support | specially for search engine |
+ name | language | Pluges | difficulty | distributed? | crawl js? | Others 
+ ---- | ---------
+ Nutch | Java | hard to develop,even change the frame | hard | support | support | specially for search engine |
