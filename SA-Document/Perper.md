@@ -17,5 +17,5 @@ As we can see, the Downloader is the narrowest part of the whole program.So when
 
 ### Compare to other frame
  name | language | Pluges | difficulty | distributed? | crawl js? | Others 
- ---- | ---------
- Nutch | Java | hard to develop,even change the frame | hard | support | support | specially for search engine |
+ ---- | -------- | ------ | ---------- | ------------ | --------- | ------
+ Nutch | Java | hard to develop,even change the frame | hard | support | support | specially for search engine 
