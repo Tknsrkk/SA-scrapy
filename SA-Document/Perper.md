@@ -18,4 +18,10 @@ As we can see, the Downloader is the narrowest part of the whole program.So when
 ### Compare to other frame
  name | language | Pluges | distributed? | js? | Others 
  ---- | -------- | ------ | ------------ | --- | ------
- Nutch | Java | hard to develop,even change the frame | hard | support | support | specially for search engine 
+ Nutch | Java | hard to develop,even change the frame | support | support | specially for search engine 
+ Crawler4j | Java | no | no | no | used in easy project
+ WebCollector | Java | easy to develop | no | no | based on Scrapy
+ Scrapy | Python | easy to develop | able to support | no | modelarization,good Scalability
+ pyspider | Python | no | support | support | Strong ability to arrange crawlers
+ 
+ As the table shows, Scrapy is good at Scalability and can be develop to adapt to different conditions.In this way, we can say that Scrapy gives the best performance.
