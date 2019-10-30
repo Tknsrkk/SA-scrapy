@@ -30,7 +30,7 @@ While the development is open-source, the amount of documentation about contribu
 - [5. Deployment View](#Deployment-view)
   - [5.1 Third-party Software Requirements](#Third-party-dependencies)
   - [5.2 Specialist Knowledge](#Specialist-Knowledge)
-- [6. Functional View](#6. Functional View)
+- [6. Functional View](#Functional View)
   - [6.1 Functionalities](#6.1)
   - [6.2 Extensibility](#6.2)
 - [7. Performance Perspective](#7)
@@ -257,7 +257,7 @@ To use Scrapy some specialist knowledge is required.
 * Familiar with regular expression and XPath
 * Understand Depth-First-Search and Breadth-First-Search
 
-## 6. Functional view
+## Functional view
 According to the defination of functional vew in  Rozanski and Wood's book[[1]]()
 >Functional vew: Describes the system’s functional elements, their responsibilities, interfaces, and primary interactions. A Functional view is the cornerstone of most ADs and is often the first part of the description that stakeholders try to read. It drives the shape of other system structures such as the information structure, concurrency structure, deployment structure, and so on. It also has a significant impact on the system’s quality properties such as its ability to change, its ability to be secured, and its runtime performance.
 
