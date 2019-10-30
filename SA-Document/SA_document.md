@@ -34,7 +34,7 @@ While the development is open-source, the amount of documentation about contribu
   - [6.1 Functional Capabilities](#Functional-Capabilities)
   - [6.2 Functional Interactions](#Functional-Interactions)
   - [6.3 External interfaces](#External-interfaces)
-- [7. Performance Perspective](#7)
+- [7. Performance Perspective](#Performance-Perspective)
 - [8. Technical Debt](#8)
   - [8.1 Static Analysis](#8.1)
   - [8.2 Testing Debt](#8.2)
@@ -326,7 +326,7 @@ The infrastructure of the settings provides a global namespace of key-value mapp
 | ``` HTTPCACHE_EXPIRATION_SECS ``` | Set the timeout of the cache. The default value is 0, which is always valid. | 
 | ```AUTOTHROTTLE_MAX_DELAY  ``` | Maximum download delay | 
 
-## Performance perspective
+## Performance-Perspective
 When programers first start to learn the crawler frame, they always care about the speed of the frame. But later, they will learn that the
 speed of your crawler depends on a lot of thing, such as your anti-anti-crawler skill,the arrangement of your crawlers, the read/write speed
 of your database,etc. So its hard to evaluate the performance of a crawler frame.
