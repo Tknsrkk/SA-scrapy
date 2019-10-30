@@ -385,15 +385,15 @@ Complexity `1`    | Maintainability `171`                       | Security `31`
 ------------------|---------------------------------------------|---------------
 Complex Method `1`| Redefining built-in `41`                    | Use of insecure MD2, MD4 or MD5 hash function `9`
 ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ| Unnecessary else after return `38`          | Use of insecure lxml.etree module `6`
-                  | Unresolved warning comment `21`             | Use of eval() `5`
-                  | Trailing newline `21`                       | Use of possibly insecure marshal module `2`
-                  | Multiple statements in one line `14`        | Starting a process with a shell `2`
-                  | Use of bare except `6`                      | Use of insecure SSL/TLS as method parameter value `2`
-                  | Pointless statement `5`                     | Use of hard-coded password strings `1`
-                  | Use of len(sequence) as condition value `4` | Use of possibly insecure ftplib module `1`
-                  | Unbalanced tuple unpacking `3`              | Possible binding to all interfaces `1`
-                  | Lost exception `3`                          | A pass in the except block `1`
-                  | Unidiomatic type check `3`                  | Use of insecure mktemp() function `1`
+ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ| Unresolved warning comment `21`             | Use of eval() `5`
+ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ| Trailing newline `21`                       | Use of possibly insecure marshal module `2`
+ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ| Multiple statements in one line `14`        | Starting a process with a shell `2`
+ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ| Use of bare except `6`                      | Use of insecure SSL/TLS as method parameter value `2`
+ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ| Pointless statement `5`                     | Use of hard-coded password strings `1`
+ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ| Use of len(sequence) as condition value `4` | Use of possibly insecure ftplib module `1`
+ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ| Unbalanced tuple unpacking `3`              | Possible binding to all interfaces `1`
+ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ| Lost exception `3`                          | A pass in the except block `1`
+ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ| Unidiomatic type check `3`                  | Use of insecure mktemp() function `1`
 
 *Table 1: Issues that affect Scrapy in CodeFactor*
 
