@@ -384,7 +384,7 @@ CodeFactor mainly analyzes the code from Complexity, Style, Compatibility, Perfo
 Complexity `1`    | Maintainability `171`                       | Security `31`
 ------------------|---------------------------------------------|---------------
 Complex Method `1`| Redefining built-in `41`                    | Use of insecure MD2, MD4 or MD5 hash function `9`
-                  | Unnecessary else after return `38`          | Use of insecure lxml.etree module `6`
+ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ| Unnecessary else after return `38`          | Use of insecure lxml.etree module `6`
                   | Unresolved warning comment `21`             | Use of eval() `5`
                   | Trailing newline `21`                       | Use of possibly insecure marshal module `2`
                   | Multiple statements in one line `14`        | Starting a process with a shell `2`
