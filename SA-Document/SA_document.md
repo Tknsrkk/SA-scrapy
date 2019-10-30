@@ -257,13 +257,13 @@ To use Scrapy some specialist knowledge is required.
 * Familiar with regular expression and XPath
 * Understand Depth-First-Search and Breadth-First-Search
 
-## Functional view
+## Functional-view
 According to the defination of functional vew in  Rozanski and Wood's book[[1]]()
 >Functional vew: Describes the system’s functional elements, their responsibilities, interfaces, and primary interactions. A Functional view is the cornerstone of most ADs and is often the first part of the description that stakeholders try to read. It drives the shape of other system structures such as the information structure, concurrency structure, deployment structure, and so on. It also has a significant impact on the system’s quality properties such as its ability to change, its ability to be secured, and its runtime performance.
 
 In this part, main functionalities and primary interactions  are discussed. The functional capabilities, external interfaces are also concerned.
 
-### 6.1 Functional-capabilities
+### Functional-capabilities
 Functional capabilities define what the system is required to do and what it is not required to do.  Since Scrapy is a web crawling framework for crawling web sites and extracting structured data from pages, the m ain functionalities that it needs to have coincided with that. Table 2 shows the core functionalities required of Scrapy and describes what their responsibilities are.
                                                 
 | Functionality| Description | Implementation |
@@ -276,7 +276,7 @@ Functional capabilities define what the system is required to do and what it is 
 | Asynchronous request | It is also necessary to have efficient crawling efficiency in the fight against type crawlers, and synchronization mechanism is a desirable solution. | Engine and Scheduler module |
 | Debug | Debug is a troublesome problem in crawlers. It is often necessary to start a crawler to debug, which will cause problems such as increasing useless requests. How to debug efficiently is very important. | Scrapy Shell |    
                                          
-### 6.2 Functional-interactions
+### Functional-interactions
 Some of the core functions of scratch are described above. In this section, we will focus on how these functions and functional modules interact with each other.
 
 ![Figure 2 Functional interactions](https://upload-images.jianshu.io/upload_images/17534427-183378c230bd0252.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -303,10 +303,10 @@ Some of the core functions of scratch are described above. In this section, we w
 
 *step 10*. Continue to repeat step 2 until all ```Requests``` are processed and the program exits.
 
-### 6.3 External-interfaces
+### External-interfaces
 The external interfaces provided by Scrapy mainly concern functionality to extension development possible.  There are too many interfaces to completely list them in this report, so for a full list of available external interface refer to the ```setting.py```.
 
-The infrastructure of the settings provides a global namespace of key-value mappings that the code can use to pull configuration values from. The settings can be populated through different mechanisms, which are described below.[[2]]()
+The infrastructure of the settings provides a global namespace of key-value mappings that the code can use to pull configuration values from. The settings can be populated through different mechanisms, which are described below.<a ref="ref_dev_7">[9]</a>
 
 | Interface | Description | 
 | ------ | ------ |
@@ -342,4 +342,6 @@ The infrastructure of the settings provides a global namespace of key-value mapp
 <a name="ref_dev_5">[7]</a>[https://docs.scrapy.org/en/latest/topics/architecture.html](https://docs.scrapy.org/en/latest/topics/architecture.html)
 
 <a name="ref_dev_6">[8]</a>Nick Rozanski and Eoin Woods. Software System Architecture: Working With Stakeholders Using Viewpoints and Perspectives. Addison-Wesley, 2012.
+
+<a name="ref_dev_6">[9]</a>Nick Rozanski and Eoin Woods. Software Systems Architecture: Working with Stakeholders using Viewpoints and Perspectives. Addison-Wesley, 2012.
 
