@@ -32,7 +32,7 @@ While the development is open-source, the amount of documentation about contribu
   - [5.2 Specialist Knowledge](#Specialist-Knowledge)
 - [6. Functional View](#Functional-View)
   - [6.1 Functional Capabilities](#Functional-Capabilities)
-  - [6.2 Functional Intereactions](#Functional-Intereactions)
+  - [6.2 Functional Interactions](#Functional-Interactions)
   - [6.3 External interfaces](#External-interfaces)
 - [7. Performance Perspective](#7)
 - [8. Technical Debt](#8)
@@ -259,7 +259,7 @@ To use Scrapy some specialist knowledge is required.
 * Understand Depth-First-Search and Breadth-First-Search
 
 ## Functional-view
-According to the defination of functional vew in  Rozanski and Wood's book[[1]]()
+According to the defination of functional vew in  Rozanski and Wood's book<a ref="ref_dev_7">[9]</a>
 >Functional vew: Describes the system’s functional elements, their responsibilities, interfaces, and primary interactions. A Functional view is the cornerstone of most ADs and is often the first part of the description that stakeholders try to read. It drives the shape of other system structures such as the information structure, concurrency structure, deployment structure, and so on. It also has a significant impact on the system’s quality properties such as its ability to change, its ability to be secured, and its runtime performance.
 
 In this part, main functionalities and primary interactions  are discussed. The functional capabilities, external interfaces are also concerned.
@@ -307,7 +307,7 @@ Some of the core functions of scratch are described above. In this section, we w
 ### External-interfaces
 The external interfaces provided by Scrapy mainly concern functionality to extension development possible.  There are too many interfaces to completely list them in this report, so for a full list of available external interface refer to the ```setting.py```.
 
-The infrastructure of the settings provides a global namespace of key-value mappings that the code can use to pull configuration values from. The settings can be populated through different mechanisms, which are described below.<a ref="ref_dev_7">[9]</a>
+The infrastructure of the settings provides a global namespace of key-value mappings that the code can use to pull configuration values from. The settings can be populated through different mechanisms, which are described below.<a ref="ref_dev_8">[10]</a>
 
 | Interface | Description | 
 | ------ | ------ |
@@ -344,5 +344,7 @@ The infrastructure of the settings provides a global namespace of key-value mapp
 
 <a name="ref_dev_6">[8]</a>Nick Rozanski and Eoin Woods. Software System Architecture: Working With Stakeholders Using Viewpoints and Perspectives. Addison-Wesley, 2012.
 
-<a name="ref_dev_6">[9]</a>Nick Rozanski and Eoin Woods. Software Systems Architecture: Working with Stakeholders using Viewpoints and Perspectives. Addison-Wesley, 2012.
+<a name="ref_dev_7">[9]</a>Nick Rozanski and Eoin Woods. Software Systems Architecture: Working with Stakeholders using Viewpoints and Perspectives. Addison-Wesley, 2012.
+
+<a name="ref_dev_8">[10]</a>[https://docs.scrapy.org/en/latest/topics/settings.html(https://docs.scrapy.org/en/latest/topics/settings.html
 
