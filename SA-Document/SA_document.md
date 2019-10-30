@@ -273,5 +273,5 @@ To use Scrapy some specialist knowledge is required.
 
 <a name="ref_dev_5">[7]</a>[https://docs.scrapy.org/en/latest/topics/architecture.html](https://docs.scrapy.org/en/latest/topics/architecture.html)
 
-<a name="ref_dev_6">[8]</a>(Nick Rozanski and Eoin Woods. Software System Architecture: Working With Stakeholders Using Viewpoints and Perspectives. Addison-Wesley, 2012.)
+<a name="ref_dev_6">[8]</a>Nick Rozanski and Eoin Woods. Software System Architecture: Working With Stakeholders Using Viewpoints and Perspectives. Addison-Wesley, 2012.
 
