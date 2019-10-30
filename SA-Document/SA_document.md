@@ -35,10 +35,11 @@ While the development is open-source, the amount of documentation about contribu
   - [6.2 Functional Interactions](#Functional-Interactions)
   - [6.3 External interfaces](#External-interfaces)
 - [7. Performance Perspective](#Performance-Perspective)
-- [8. Technical Debt](#8)
-  - [8.1 Static Analysis](#8.1)
-  - [8.2 Testing Debt](#8.2)
-- [9. Evolution Perspective](#9)
+- [8. Technical Debt](#Technical-Debt)
+  - [8.1 Analysis Tools](#Analysis-Tools)
+  - [8.2 Code Analysis](#Code-Analysis)
+  - [8.3 Evaluation](#Evaluation)
+- [9. Evolution Perspective](#Ecolution)
 - [10. Conclusion](#10)
 
 ## Introduction
@@ -282,7 +283,7 @@ Some of the core functions of scratch are described above. In this section, we w
 
 ![Figure 2 Functional interactions](https://upload-images.jianshu.io/upload_images/17534427-183378c230bd0252.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-####Interfaces between modules during a life-circle
+#### Interfaces between modules during a life-circle
 *step 1*. Firstly, the scratch engine gets the start request collection from the spider, which is the ```start_urls``` defined in the spider. If the spider overrides the ```start_requests() ```method, the request collection returned by this method is the start request.
 
 *step 2*. The scrape engine sends the received ```request structure``` to the scheduling center to start scheduling.
@@ -353,6 +354,142 @@ As we can see, the Downloader is the narrowest part of the whole program.So when
  pyspider | Python | no | support | support | Strong ability to arrange crawlers
  
  As the table shows, Scrapy is good at Scalability and can be develop to adapt to different conditions.In this way, we can say that Scrapy gives the best performance.<a href="#ref_dev_9">[11]</a>
+ 
+ ## Technical-Debt
+
+>   Technical debt (also known as design debt or code debt) is a concept in software development that reflects the implied cost of additional rework caused by choosing an easy solution now instead of using a better approach that would take longer.
+
+This part will focuse on some long-trem impacts of trade-offs that are taken during the software development between development and maintainability of Scrapy. The definition of techchnical debt is shown above. <a href="#ref_dev_10">[12]</a>
+
+### Analysis-Tools
+
+In order to understand the current state of technical debt in Scrapy, some code analysis tools are needed to perform some analysis. The language used by Scrapy is Python. The code analysis tools of the Python language are various and their respective biases are different. Some of the best-performing code analysis tools are available for a fee. Due to cost constraints, we are limited to open source code analysis tools that are feature-rich and perform well.
+
+After our screening, we chose PyLint's code analysis tool as our analysis tool. However, this open source software has its own problem, that is, there is no good graphical interface, and the analysis process is carried out on the command line.
+
+In order to make the results more intuitive, we have been searching for and found the CodeFactor website. The underlying code analysis of this website is implemented by PyLint, and has a good graphical interface, which can intuitively feedback the results of code analysis.
+
+And the tool analyzes all project files separately and provides a rating (from A to F) for each file. Code complexity, code issues, and code replication are examples of metrics. This cloud-based analysis tool is easy to implement.
+
+### Code-Analysis
+
+![CodeFactor](https://www.codefactor.io/repository/github/scrapy/scrapy/badge)
+
+Based on the overall rating of the project given by CodeFactor, Scrapy received an A-level rating in the evaluation. This means that Scrapy's overall code structure is good, no serious problems, and one of the best software in the code analysis of various software.
+
+However, as an analysis of technical debt, we can't just stay on the overview of the code as a whole. Next, we will analyze the parts of the code, especially some of the problems.
+
+CodeFactor mainly analyzes the code from Complexity, Style, Compatibility, Performance, Maintainability and so on. The following table is the type of problem and the number of problems in Scrapy given by CodeFactor. It should be noted that in the Maintainability of the table, I only select the issue with the number of occurrences greater than or equal to three times.
+
+Complexity `1`    | Maintainability `171`                       | Security `31`
+------------------|---------------------------------------------|---------------
+Complex Method `1`| Redefining built-in `41`                    | Use of insecure MD2, MD4 or MD5 hash function `9`
+                  | Unnecessary else after return `38`          | Use of insecure lxml.etree module `6`
+                  | Unresolved warning comment `21`             | Use of eval() `5`
+                  | Trailing newline `21`                       | Use of possibly insecure marshal module `2`
+                  | Multiple statements in one line `14`        | Starting a process with a shell `2`
+                  | Use of bare except `6`                      | Use of insecure SSL/TLS as method parameter value `2`
+                  | Pointless statement `5`                     | Use of hard-coded password strings `1`
+                  | Use of len(sequence) as condition value `4` | Use of possibly insecure ftplib module `1`
+                  | Unbalanced tuple unpacking `3`              | Possible binding to all interfaces `1`
+                  | Lost exception `3`                          | A pass in the except block `1`
+                  | Unidiomatic type check `3`                  | Use of insecure mktemp() function `1`
+
+*Table 1: Issues that affect Scrapy in CodeFactor*
+
+From the above table, it can be seen that Scrapy's code does have fewer problems overall. As with CodeFactor's rating, Scrapy has one issue for Complexity in code analysis, 171 for Maintainability, and 31 for Security. Compared with some other open source projects, the types of issues are significantly less, and the number of issues under each type of issue is significantly less than that of open source projects of the same level.
+
+Since Scrapy is a very active open source project and is organized and maintained by ScrapingHub, it can be seen that Scrapy's overall technical debt is less, and the overall code update is more timely. With the joint efforts of many parties, the current good state has been achieved.
+
+### Evaluation
+
+#### Evaluation by Category
+
+First we will continue to analyze the various issues given by CodeFactor in the code analysis of the Scrapy project.
+
+From the quantitative analysis, the issue of Maintainability is undoubtedly the part of the technical debt. Sorting according to the number of occurrences in Maintainability, we will focus on the first three issues for specific analysis.
+
+-   Redefining built-in
+    
+    We first need to understand the specific meaning of this issue. Redefining built-in is a variable or function overrides a built-in. Overloading function names can make code hard to maintain and hard to read, and can cause subtle bugs when the wrong function is called.
+
+    The solution to this type of issue is to try to rename user-defined function to a name that is not a built-in function. But as we know, such problems are easy to solve, but the difficulty is to find it. When we implement certain features, we sometimes redefine these functions to achieve our goals faster. Although this will bring possible future errors, it will increase efficiency. As an open source software, it is difficult for us to ask for perfection in this area, because it is almost impossible to have someone to carry out this maintenance.
+
+-   Unnecessary else after return
+    
+    Unnecessary else after return is used in order to highlight an unnecessary block of code following an if containing a return statement. As such, it will warn when it encounters an else following a chain of ifs, all of them containing a return statement. 
+
+    This type of issue is obviously a question of the programming habits of the developer during the development process. And according to the situation of the commit, it can be seen that the generation of such an issue is caused by one of the developers. So we can think that this kind of technical debt is caused by some developers' programming habits.
+
+-   Unresolved warning comment
+    
+    Unresolved warning comment is used as a warning note when FIXME or XXX is detected. Such issues are not caused by objective factors (programming habits, etc.). It is the function that the developer himself needs to fix during the development process. There are two possibilities for this type of issue. The first is that the developer has fixed the problem but forgot to cancel the logo. The second possibility is that the issue has not been resolved due to lower priority.
+
+    Because Scrapy is an open source software that is still active today and its history has been around for many years. We can think that there are no problems caused by stopping maintenance. It is worth mentioning that the commit in this type of problem can even follow up to a decade ago, which further reflects the Scrapy technical debt for a long time.
+
+#### Evaluation by Time
+
+After analyzing the types of issues that have occurred the most, we will analyze the time of the issue. It is very surprising that the issue of the last possible problem has been around for a year, in other words, the update in the past year will not cause technical debt problems.
+
+We selected the time of the last ten issue changes and the increase and decrease of the issue. We will try to analyze Scrapy's technical debt from the dimension of time.
+
+Date       | New Issue | Fixed Issue
+-----------|-----------|---------------
+2018-08-15 | 1         | 2
+2018-08-12 | 1         | 0
+2018-07-25 | 1         | 1
+2018-07-25 | 1         | 0
+2018-07-11 | 1         | 1
+2018-07-11 | 0         | 8
+2018-07-06 | 1         | 56
+2018-07-03 | 3         | 10
+2018-07-03 | 1         | 3
+2018-06-14 | 2         | 0
+
+*Table 2: Recent Issue Change Situation*
+
+From the table we can clearly see that Scrapy's code has been maintained at a relatively good level and there is a reason for less technical debt.
+
+First of all, we can find that the frequency of the issue is not high. The above table only selects the commit that generated the issue, but in fact, such commits account for less than half of all commits.
+
+The second point is obvious. The Scrapy development team consciously fixes the issue and fixes the issue in batches over a certain period of time. This conscious maintenance has further reduced Scrapy's technical debt, keeping its code at an excellent level.
+
+The third point is that according to the commit of the past year, there is no issue. We can guess that Scrapy may analyze the code and modify the possible issue before submitting the commit. This approach significantly reduces Scrapy's technical debt.
+
+In general, Scrapy is almost unbelievable in terms of technical debt, which is very good, regardless of the type and number of issues that occur. We believe this is due to the Scrapy development team's emphasis on technical debt and ongoing repairs. This is a point worth learning for other open source software.
+
+## Evolution
+Since the version updates of Scrapy are fairly frequent, we only captures the latest releases to help us to gain a deeper understanding of the architecture and design of Scrapy.
+
+### The latest vision 
+##### 1.7.4(2019-10-21)
+* Revert the fix for issue 3804 (issue 3819), which has a few undesired side effects (issue 3897, issue 3976).
+##### 1.7.3(2019-08-01)
+* Enforce lxml 4.3.5 or lower for Python 3.4 (issue 3912, issue 3918).
+##### 1.7.2(2019-07-23)
+* Fix Python 2 support (issue 3889, issue 3893, issue 3896).
+##### 1.7.1(2019-07-18)
+* Re-packaging of Scrapy 1.7.0, which was missing some changes in PyPI.
+##### 1.7.0(2019-07-18)
+* Improvements for crawls targeting multiple domains
+* A cleaner way to pass arguments to callbacks
+* A new class for JSON requests
+* Improvements for rule-based spiders
+* New features for feed exports
+#####1.6.0 (2019-01-30)
+* better Windows support
+* Python 3.7 compatibility
+* big documentation improvements, including a switch from .extract_first() + .extract() API to .get() + .getall() API
+* feed exports, FilePipeline and MediaPipeline improvements
+* better extensibility: item_error and request_reached_downloader signals; from_crawler support for feed exporters, feed storages and dupefilters
+* scrapy.contracts fixes and new features
+* telnet console security improvements, first released as a backport in Scrapy 1.5.2 (2019-01-22)
+* clean-up of the deprecated code
+* various bug fixes, small new features and usability improvements across the codebase
+
+The most attractive thing about Scrapy is that it's a framework that anyone can easily adapt to their needs.With  the contribution of both the developers, it becomes the most commonly used spider framework in the Python world.
+Scrapy was originally designed for web scraping. With the update of versions, now it can also be used to extract data using APIs (such as Amazon Associates Web Services) or as a general purpose web crawler.It also provides base classes for various types of crawlers, such as BaseSpider, sitemap crawlers, etc.
+
 
 ## References
 
@@ -378,3 +515,4 @@ As we can see, the Downloader is the narrowest part of the whole program.So when
 
 <a name="ref_dev_9">[11]</a>《Learning Scrapy》
 
+<a name="ref_dev_10">[12]</a>Wikipedia. Technical debt [EB/OL］.Technical debt - Wikipedia，https://en.wikipedia.org/wiki/Technical_debt
