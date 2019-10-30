@@ -382,7 +382,7 @@ However, as an analysis of technical debt, we can't just stay on the overview of
 CodeFactor mainly analyzes the code from Complexity, Style, Compatibility, Performance, Maintainability and so on. The following table is the type of problem and the number of problems in Scrapy given by CodeFactor. It should be noted that in the Maintainability of the table, I only select the issue with the number of occurrences greater than or equal to three times.
 
 Complexity `1`    | Maintainability `171`                       | Security `31`
-------------------|---------------------------------------------|---------------
+ ---------------- | ------------------------------------------- |---------------
 Complex Method `1`| Redefining built-in `41`                    | Use of insecure MD2, MD4 or MD5 hash function `9`
                   | Unnecessary else after return `38`          | Use of insecure lxml.etree module `6`
                   | Unresolved warning comment `21`             | Use of eval() `5`
