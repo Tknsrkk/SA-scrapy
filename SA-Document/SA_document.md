@@ -237,7 +237,7 @@ The data flow in Scrapy is controlled by the execution engine, and goes like thi
 9.  The process repeats (from step 1) until there are no more requests from the *Schedules*
 
 ## Deployment-View
-According to Rozanski and Woods<a href = "#ref_dev_6">[8]</a>, the deployment view describes the environment into which the system will be deployed, including the dependencies the system has on its runtime environment. It defines physical, computational, and software-based requirements for running the system.
+According to Rozanski and Woods<a href = "#ref_dev_6">[9]</a>, the deployment view describes the environment into which the system will be deployed, including the dependencies the system has on its runtime environment. It defines physical, computational, and software-based requirements for running the system.
 
 ### Third-party-dependencies
 Dependencies | Role
