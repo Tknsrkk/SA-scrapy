@@ -27,9 +27,9 @@ While the development is open-source, the amount of documentation about contribu
 - [4.Development View](#Development-view)
   - [4.1 Code-Organization](#Code-Organization)
   - [4.2 Module-Organization](#Module-Organization)
-- [5. Deployment View](#5)
-  - [5.1 Third-party Software Requirements](#5.1)
-  - [5.2 Specialist Knowledge](#5.2)
+- [5. Deployment View](#Deployment-view)
+  - [5.1 Third-party Software Requirements](#Third-party-dependencies)
+  - [5.2 Specialist Knowledge](#Specialist-Knowledge)
 - [6. Functional View](#6)
   - [6.1 Functionalities](#6.1)
   - [6.2 Extensibility](#6.2)
@@ -235,10 +235,10 @@ The data flow in Scrapy is controlled by the execution engine, and goes like thi
 8.  The *Engine* sends processed items to *Item Pipelines*, then send processed Requests to the *Scheduler* and asks for possible next Requests to crawl.
 9.  The process repeats (from step 1) until there are no more requests from the *Schedules*
 
-## Deployment View
+## Deployment-View
 According to Rozanski and Woods[[1]](), the deployment view describes the environment into which the system will be deployed, including the dependencies the system has on its runtime environment. It defines physical, computational, and software-based requirements for running the system.
 
-### Third-party dependencies
+### Third-party-dependencies
 Dependencies | Role
 -|-
 PyCharm|An integrated development environment (IDE) used  specifically for the Python language. 
@@ -250,7 +250,7 @@ zope.interface|A library providing interface for Python.
 cssselect|An extension package for handling CSS selectors.
 lxml|A Python library for processing XML and HTML which supports XPath.
 Twisted|A Python library used as an Event-driven network framework.
-### Specialist Knowledge
+### Specialist-Knowledge
 To use Scrapy some specialist knowledge is required.
 
 * Basic knowledge of programming in Python
