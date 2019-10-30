@@ -30,7 +30,7 @@ While the development is open-source, the amount of documentation about contribu
 - [5. Deployment View](#Deployment-view)
   - [5.1 Third-party Software Requirements](#Third-party-dependencies)
   - [5.2 Specialist Knowledge](#Specialist-Knowledge)
-- [6. Functional View](#6)
+- [6. Functional View](#6. Functional View)
   - [6.1 Functionalities](#6.1)
   - [6.2 Extensibility](#6.2)
 - [7. Performance Perspective](#7)
@@ -256,6 +256,74 @@ To use Scrapy some specialist knowledge is required.
 * Basic knowledge of programming in Python
 * Familiar with regular expression and XPath
 * Understand Depth-First-Search and Breadth-First-Search
+
+## 6. Functional view
+According to the defination of functional vew in  Rozanski and Wood's book[[1]]()
+>Functional vew: Describes the system’s functional elements, their responsibilities, interfaces, and primary interactions. A Functional view is the cornerstone of most ADs and is often the first part of the description that stakeholders try to read. It drives the shape of other system structures such as the information structure, concurrency structure, deployment structure, and so on. It also has a significant impact on the system’s quality properties such as its ability to change, its ability to be secured, and its runtime performance.
+
+In this part, main functionalities and primary interactions  are discussed. The functional capabilities, external interfaces are also concerned.
+
+### 6.1 Functional-capabilities
+Functional capabilities define what the system is required to do and what it is not required to do.  Since Scrapy is a web crawling framework for crawling web sites and extracting structured data from pages, the m ain functionalities that it needs to have coincided with that. Table 2 shows the core functionalities required of Scrapy and describes what their responsibilities are.
+                                                
+| Functionality| Description | Implementation |
+| ------ | ------ | ------ |
+| Send network request | The main component of the system is to create kinds of HTTP or HTTPS requests to defferent web sites for  expected data  | Spider and Schedule module |
+| Data download | After the request is made, the corresponding data needs to be downloaded to memory according to the response | Downloader module|
+| Data parsing | The data downloaded from the website is often not the final desired format, and data transmission is required in the process of network communication. |  Downloader module and Downloader middleware |
+| Data storage | The results of data analysis often need to be stored as text or various databases. | Item Pipeline module |
+| Anti crawler mechanism | Many websites often use the latter anti crawler mechanism, so how to deal with it is particularly important | Engine module |
+| Asynchronous request | It is also necessary to have efficient crawling efficiency in the fight against type crawlers, and synchronization mechanism is a desirable solution. | Engine and Scheduler module |
+| Debug | Debug is a troublesome problem in crawlers. It is often necessary to start a crawler to debug, which will cause problems such as increasing useless requests. How to debug efficiently is very important. | Scrapy Shell |    
+                                         
+### 6.2 Functional-interactions
+Some of the core functions of scratch are described above. In this section, we will focus on how these functions and functional modules interact with each other.
+
+![Figure 2 Functional interactions](https://upload-images.jianshu.io/upload_images/17534427-183378c230bd0252.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+####Interfaces between modules during a life-circle
+*step 1*. Firstly, the scratch engine gets the start request collection from the spider, which is the ```start_urls``` defined in the spider. If the spider overrides the ```start_requests() ```method, the request collection returned by this method is the start request.
+
+*step 2*. The scrape engine sends the received ```request structure``` to the scheduling center to start scheduling.
+
+*step 3*. The scrape engine requests the dispatch center to get the next ```request structure``` to be crawled.
+
+*step 4*. After the summary engine gets the request, it sends the request to the downloader. This process goes through a series of download middleware configured in settings.py. All the download middleware configured in ```settings.py ```will process the request in turn. ——Corresponding to ```downloadermiddleware#Process_ request() ```method
+
+*step 5*. The downloader pulls the response content according to the request. For example, if the URL of the request is http://www.google.com, the downloader will pull the corresponding web page content and encapsulate it as a ```Response``` object.
+
+*step 6*. The downloader sends the response to the graph engine. This process will also go through a series of download middleware configured in ```settings.py```. These download middleware will process' response 'in turn. ——Corresponding to
+ ```DownloaderMiddleware#process_response() ```method.
+ 
+*step 7*. After getting the ```Response```, the graph engine sends the response to the spider and hands it to the corresponding spider function for processing. Here, the default method is ```parse()```, which is specified when the callback method constructs the ```Request```. The engine sends the ```Response``` through a series of spider middleware configured in ```settings.py```, which will process the ```Response ```in turn. ——Corresponding to```CorrespondenceSpiderMiddleware#process_spider_input()```method.
+
+*step 8*. After processing the ```Response```, the spider will return a result, which is``` an Iterable object containing a Request or item object```. Then send the result to the graph engine. This process will also go through a series of spider middleware configured in ```settings.py```, which will process the result in turn. ——Corresponding to ```spidermiddleware_process_spider_output ()```method.
+
+*step 9*. After the result is obtained by the scrape engine, the items will be sent to the ```item pipeline``` for processing, and these items will be processed by a series of ```pipelin```e configured in settings.py. At the same time, the request in the result will also be sent to the dispatcher for scheduling.
+
+*step 10*. Continue to repeat step 2 until all ```Requests``` are processed and the program exits.
+
+### 6.3 External-interfaces
+The external interfaces provided by Scrapy mainly concern functionality to extension development possible.  There are too many interfaces to completely list them in this report, so for a full list of available external interface refer to the ```setting.py```.
+
+The infrastructure of the settings provides a global namespace of key-value mappings that the code can use to pull configuration values from. The settings can be populated through different mechanisms, which are described below.[[2]]()
+
+| Interface | Description | 
+| ------ | ------ |
+| ``` SPIDER_MODULES ``` | File path stored by crawler | 
+| ``` NEWSPIDER_MODULE ``` | Create the template of the crawler file. The created crawler file will be stored in this directory. | 
+| ```  USER_AGENT``` | Set UA to simulate browser request | 
+| ``` ROBOTSTXT_OBEY ``` | Set whether robot protocol compliance is required: true by default | 
+| ```CONCURRENT_REQUESTS  ``` | Set the maximum concurrent data requested (downloader), 16 by default | 
+| ```DOWNLOAD_DELAY  ``` | Set the download delay of the request. The default is 0. | 
+| ``` CONCURRENT_REQUESTS_PER_DOMAIN ``` |Set the maximum number of concurrent requests for the website. The default is 8. | 
+| ```CONCURRENT_REQUESTS_PER_IP  ``` | Set the maximum concurrent requests of an IP. The default is 0. | 
+| ```  COOKIES_ENABLED ``` | Whether to carry cookies? True by default | 
+| ```  COOKIES_DEBUG``` | Tracking cookies, false by default | 
+| ``` SPIDER_MIDDLEWARES ``` | Set up and activate crawler Middleware | 
+| ```  ITEM_PIPELINES``` | Set and activate the pipeline file, followed by a number indicating priority | 
+| ``` HTTPCACHE_EXPIRATION_SECS ``` | Set the timeout of the cache. The default value is 0, which is always valid. | 
+| ```AUTOTHROTTLE_MAX_DELAY  ``` | Maximum download delay | 
 
 ## References
 
