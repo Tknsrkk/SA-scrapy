@@ -235,6 +235,28 @@ The data flow in Scrapy is controlled by the execution engine, and goes like thi
 8.  The *Engine* sends processed items to *Item Pipelines*, then send processed Requests to the *Scheduler* and asks for possible next Requests to crawl.
 9.  The process repeats (from step 1) until there are no more requests from the *Schedules*
 
+##x.Deployment View
+According to Rozanski and Woods[[1]](), the deployment view describes the environment into which the system will be deployed, including the dependencies the system has on its runtime environment. It defines physical, computational, and software-based requirements for running the system.
+
+### Third-party dependencies
+Dependencies | Role
+-|-
+PyCharm|An integrated development environment (IDE) used  specifically for the Python language. 
+pip|A Python package installer
+pywin32|Python extensions for Microsoft Windows Provides access to much of the Win32 API.
+pyOpenSSL|A Python package which is used to support Security Socket Layer.
+cryptography|A Python library used for encrypting.
+zope.interface|A library providing interface for Python.
+cssselect|An extension package for handling CSS selectors.
+lxml|A Python library for processing XML and HTML which supports XPath.
+Twisted|A Python library used as an Event-driven network framework.
+### Specialist Knowledge
+To use Scrapy some specialist knowledge is required.
+
+* Basic knowledge of programming in Python
+* Familiar with regular expression and XPath
+* Understand Depth-First-Search and Breadth-First-Search
+
 ## References
 
 <a name="ref_sta1">[1]</a>Wikipedia. Stakeholder (corporate)[EB/OL］.Stakeholder (corporate) - Wikipedia，https://en.wikipedia.org/wiki/Stakeholder_(corporate)
