@@ -235,7 +235,7 @@ The data flow in Scrapy is controlled by the execution engine, and goes like thi
 8.  The *Engine* sends processed items to *Item Pipelines*, then send processed Requests to the *Scheduler* and asks for possible next Requests to crawl.
 9.  The process repeats (from step 1) until there are no more requests from the *Schedules*
 
-##x.Deployment View
+## Deployment View
 According to Rozanski and Woods[[1]](), the deployment view describes the environment into which the system will be deployed, including the dependencies the system has on its runtime environment. It defines physical, computational, and software-based requirements for running the system.
 
 ### Third-party dependencies
