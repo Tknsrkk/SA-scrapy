@@ -259,7 +259,7 @@ To use Scrapy some specialist knowledge is required.
 * Understand Depth-First-Search and Breadth-First-Search
 
 ## Functional-view
-According to the defination of functional vew in  Rozanski and Wood's book<a href="ref_dev_7">[9]</a>
+According to the defination of functional vew in  Rozanski and Wood's book<a href="#ref_dev_7">[9]</a>
 >Functional vew: Describes the system’s functional elements, their responsibilities, interfaces, and primary interactions. A Functional view is the cornerstone of most ADs and is often the first part of the description that stakeholders try to read. It drives the shape of other system structures such as the information structure, concurrency structure, deployment structure, and so on. It also has a significant impact on the system’s quality properties such as its ability to change, its ability to be secured, and its runtime performance.
 
 In this part, main functionalities and primary interactions  are discussed. The functional capabilities, external interfaces are also concerned.
@@ -307,7 +307,7 @@ Some of the core functions of scratch are described above. In this section, we w
 ### External-interfaces
 The external interfaces provided by Scrapy mainly concern functionality to extension development possible.  There are too many interfaces to completely list them in this report, so for a full list of available external interface refer to the ```setting.py```.
 
-The infrastructure of the settings provides a global namespace of key-value mappings that the code can use to pull configuration values from. The settings can be populated through different mechanisms, which are described below.<a href="ref_dev_8">[10]</a>
+The infrastructure of the settings provides a global namespace of key-value mappings that the code can use to pull configuration values from. The settings can be populated through different mechanisms, which are described below.<a href="#ref_dev_8">[10]</a>
 
 | Interface | Description | 
 | ------ | ------ |
@@ -325,6 +325,34 @@ The infrastructure of the settings provides a global namespace of key-value mapp
 | ```  ITEM_PIPELINES``` | Set and activate the pipeline file, followed by a number indicating priority | 
 | ``` HTTPCACHE_EXPIRATION_SECS ``` | Set the timeout of the cache. The default value is 0, which is always valid. | 
 | ```AUTOTHROTTLE_MAX_DELAY  ``` | Maximum download delay | 
+
+## Performance perspective
+When programers first start to learn the crawler frame, they always care about the speed of the frame. But later, they will learn that the
+speed of your crawler depends on a lot of thing, such as your anti-anti-crawler skill,the arrangement of your crawlers, the read/write speed
+of your database,etc. So its hard to evaluate the performance of a crawler frame.
+In the following part, we will discuss the speed performance of Scrapy and then we will compare some famous frames.
+### Understand the performance of scrapy
+[![Kg4YBn.png](https://s2.ax1x.com/2019/10/28/Kg4YBn.png)](https://imgchr.com/i/Kg4YBn)
+This is the performance model of scrapy.It has four parts:scheduler,throttler,downloader and scraper.
+- Scraper:A large number of requests are queued here until the downloader processes them. Most of these are urls and are therefore small, meaning that even if a large number of requests exist, they can be processed by the downloader in a timely manner.
+- Throttler:This is a safety valve for the crawler to feed back and forth, and if the response in the process is greater than 5MB, the blocker suspends more requests to the loader. This can cause fluctuations in performance.
+- Downloader:This is the most important component for Scrapy's performance. It limits the number of concurrences with a complex mechanism. Its latency (pipeline length) is equal to the response time of the remote server, plus the network/operating system, Python/Twisted latency. We can adjust the number of concurrent requests, but not the other delays. The capabilities of the downloaders are limited by the CONCURRENT_REQUESTS* setting.
+- Scraper:This is the component of the grab that turns Response into an Item and other requests. As long as we follow the rules to write the crawler, it's usually not a bottleneck.
+
+As we can see, the Downloader is the narrowest part of the whole program.So when we talk about the speed of Scrapy, the setting of the Downloader will play the most important part.
+
+![KgThdA.png](https://s2.ax1x.com/2019/10/28/KgThdA.png)
+
+### Compare to other frame
+ name | language | Pluges | distributed? | js? | Others 
+ ---- | -------- | ------ | ------------ | --- | ------
+ Nutch | Java | hard to develop,even change the frame | support | support | specially for search engine 
+ Crawler4j | Java | no | no | no | used in easy project
+ WebCollector | Java | easy to develop | no | no | based on Scrapy
+ Scrapy | Python | easy to develop | able to support | no | modelarization,good Scalability
+ pyspider | Python | no | support | support | Strong ability to arrange crawlers
+ 
+ As the table shows, Scrapy is good at Scalability and can be develop to adapt to different conditions.In this way, we can say that Scrapy gives the best performance.<a href="#ref_dev_9">[11]</a>
 
 ## References
 
@@ -347,4 +375,6 @@ The infrastructure of the settings provides a global namespace of key-value mapp
 <a name="ref_dev_7">[9]</a>Nick Rozanski and Eoin Woods. Software Systems Architecture: Working with Stakeholders using Viewpoints and Perspectives. Addison-Wesley, 2012.
 
 <a name="ref_dev_8">[10]</a>[https://docs.scrapy.org/en/latest/topics/settings.html(https://docs.scrapy.org/en/latest/topics/settings.html
+
+<a name="ref_dev_9">[11]</a>《Learning Scrapy》
 
