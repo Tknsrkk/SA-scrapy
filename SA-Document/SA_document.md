@@ -359,16 +359,18 @@ As we can see, the Downloader is the narrowest part of the whole program.So when
   From the perspective of third-party package download and downloader code implementation, asynchronous and concurrent implementation mainly uses **twisted** package, which is discussed below.
   
   ![QP3xTH.png](https://s2.ax1x.com/2019/11/28/QP3xTH.png)
+  
   *Figue - 7-3  scrapy _download() method slice*
   
-  **Twisted and Reactor pattern**
+  #### Twisted and Reactor pattern ####
   Twisted is an event driven network engine framework implemented in Python. Its concurrency and asynchrony mainly use **Reactor** mode
 The Reactor mode is event driven, with one or more concurrent input sources, one service handler and multiple request handlers. The service handler will synchronously multiplex the input requests to the corresponding request handlers.
 
 ![QP80c6.png](https://s2.ax1x.com/2019/11/28/QP80c6.png)
+
 *Figue - 7-4  Reactor mode*
 
-  **Deferred object**
+  #### Deferred object ####
   As can be seen from figure 7-3, scraper uses **Twisted deferred object** to implement the **Reactor pattern**.
   **Twisted** uses the **deferred object** to manage the sequence of **callback functions**. In some cases, you may want to associate a series of functions with the deferred object to call in order when the **asynchronous operation** is completed (these series of callback functions are called callback function chains); at the same time, some functions are called when the asynchronous operation is abnormal. When the operation is completed, the first callback function will be called first, or when an error occurs, the first error handling callback function will be called first, and then the **deferred object** will pass the return value of each callback function or error handling callback function to the next function in the chain.
 
