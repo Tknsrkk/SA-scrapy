@@ -43,7 +43,7 @@ While the development is open-source, the amount of documentation about contribu
   - [8.2 Code Analysis](#Code-Analysis)
   - [8.3 Evaluation](#Evaluation)
 - [9. Evolution Perspective](#Evolution)
-- [10. Conclusion](#10)
+- [10. Conclusion](#Conclusion)
 
 ## Introduction
 
@@ -513,6 +513,22 @@ Since the version updates of Scrapy are fairly frequent, we only captures the la
 
 The most attractive thing about Scrapy is that it's a framework that anyone can easily adapt to their needs.With  the contribution of both the developers, it becomes the most commonly used spider framework in the Python world.
 Scrapy was originally designed for web scraping. With the update of versions, now it can also be used to extract data using APIs (such as Amazon Associates Web Services) or as a general purpose web crawler.It also provides base classes for various types of crawlers, such as BaseSpider, sitemap crawlers, etc.
+
+## Conclusion
+  Scrapy is an application framework written to crawl web site data and extract structural data. It can be used in a series of programs including data mining, information processing or storing historical data. It is originally designed for page fetching (more specifically, Web fetching) and can be used to retrieve data returned by the API (for example, Amazon Associates Web Services) or general purpose Web crawlers.
+  
+  Nowadays, because of Scrapy’s efficient page download performance and anti crawler ability, the scraper has attracted more and more attention. Specifically, there are more and more maintainers on GitHub, and more and more actual project developers. In addition, the documents are very well introduced, which makes it easier for developers to start, and also reflects the clarity of their architecture ideas.
+  
+  From the analysis of the architecture of Scrapy, we have learned and firmly grasped how to use scrape in development in a series of analysis examples, which improves our ability to crawl data. What is more important is the experience to analysis from several architecture perspectives:
+  In the **Stakeholder Analysis**, we discussed various roles of stakeholders involved in Scrapy. Core members take on numerous responsibilities of different roles. They maintain and promote Scrapy along with community contributors.
+  In the **Context View** showed the responsibilities and external entities that Scrapy uses. Therefore, readers could get a clear view of the interactions within the environment of Scrapy.
+  In the **Development View**, design principles, code organization and model organization of Scrapy were discussed in details. Based on Scrapy's clear principle, Scrapy provides a elegant way to write an efficient crawl program.
+  In the **Deployment View** gave a description of the environment where Scrapy would be deployed. Various third-party software requirements were introduced in details to help programmers to set up the developing environment.
+  In the **Functional View**, we showed several key features of Scrapy. These functionalities effectively increase the extensibility of the Scrapy projects. And we display the internal structure and interaction between implementation modules and some external interfaces in setting.
+  In the **Performance Perspective**, a more detailed view of its architecture was displayed. Performance of Scrapy is relatively good in comparison with its competitors. Performance is the key quality attribute of the spectrum, and we also discussed the architecture of implementing this quality attribute in detail.
+  In the **Technical Debt section**, we used tools to analyze technical debts within Scrapy such as code duplication, testing debt and so on. There were still minor errors in static code analysis. Meanwhile, Scrapy performed beyond expectation in the code coverage analysis.
+  In the **Evolution Perspective**, we summarized and analyzed feature evolution of Scrapy by comparing its changes among different releases, which helps us understand its core design and architecture.
+
 
 
 ## References
