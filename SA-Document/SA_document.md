@@ -35,9 +35,9 @@ While the development is open-source, the amount of documentation about contribu
   - [6.2 Functional Interactions](#Functional-Interactions)
   - [6.3 External interfaces](#External-interfaces)
 - [7. Performance Perspective](#Performance-Perspective)
-  - [7.1 Understand the performance of scrapy](#Understand the performance of scrapy)
-  - [7.2 Compare to other frames](#Compare to other frames)
-  - [7.3 Concurrent performance implementation](#Concurrent performance implementation)
+  - [7.1 Understand the performance of scrapy](#Understand-the-performance-of-scrapy)
+  - [7.2 Compare to other frames](#Compare-to-other-frames)
+  - [7.3 Concurrent performance implementation](#Concurrent-performance-implementation)
 - [8. Technical Debt](#Technical-Debt)
   - [8.1 Analysis Tools](#Analysis-Tools)
   - [8.2 Code Analysis](#Code-Analysis)
@@ -335,7 +335,7 @@ When programers first start to learn the crawler frame, they always care about t
 speed of your crawler depends on a lot of thing, such as your anti-anti-crawler skill,the arrangement of your crawlers, the read/write speed
 of your database,etc. So its hard to evaluate the performance of a crawler frame.
 In the following part, we will discuss the speed performance of Scrapy and then we will compare some famous frames.
-### Understand the performance of scrapy
+### Understand-the-performance-of-scrapy
 [![Kg4YBn.png](https://s2.ax1x.com/2019/10/28/Kg4YBn.png)](https://imgchr.com/i/Kg4YBn)
 This is the performance model of scrapy.It has four parts:scheduler,throttler,downloader and scraper.
 - Scraper:A large number of requests are queued here until the downloader processes them. Most of these are urls and are therefore small, meaning that even if a large number of requests exist, they can be processed by the downloader in a timely manner.
@@ -347,7 +347,7 @@ As we can see, the Downloader is the narrowest part of the whole program.So when
 
 ![KgThdA.png](https://s2.ax1x.com/2019/10/28/KgThdA.png)
 
-### Compare to other frame
+### Compare-to-other-frame
  name | language | Pluges | distributed? | js? | Others 
  ---- | -------- | ------ | ------------ | --- | ------
  Nutch | Java | hard to develop,even change the frame | support | support | specially for search engine 
@@ -358,7 +358,7 @@ As we can see, the Downloader is the narrowest part of the whole program.So when
  
  As the table shows, Scrapy is good at Scalability and can be develop to adapt to different conditions.In this way, we can say that Scrapy gives the best performance.<a href="#ref_dev_9">[11]</a>
  
- ### Concurrent performance implementation
+ ### Concurrent-performance-implementation
   From the perspective of third-party package download and downloader code implementation, asynchronous and concurrent implementation mainly uses **twisted** package, which is discussed below.
   
   ![QP3xTH.png](https://s2.ax1x.com/2019/11/28/QP3xTH.png)
