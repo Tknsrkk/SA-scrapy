@@ -520,6 +520,7 @@ Scrapy was originally designed for web scraping. With the update of versions, no
   Nowadays, because of Scrapy’s efficient page download performance and anti crawler ability, the scraper has attracted more and more attention. Specifically, there are more and more maintainers on GitHub, and more and more actual project developers. In addition, the documents are very well introduced, which makes it easier for developers to start, and also reflects the clarity of their architecture ideas.
   
   From the analysis of the architecture of Scrapy, we have learned and firmly grasped how to use scrape in development in a series of analysis examples, which improves our ability to crawl data. What is more important is the experience to analysis from several architecture perspectives:
+  
   In the **Stakeholder Analysis**, we discussed various roles of stakeholders involved in Scrapy. Core members take on numerous responsibilities of different roles. They maintain and promote Scrapy along with community contributors.
   
   In the **Context View** showed the responsibilities and external entities that Scrapy uses. Therefore, readers could get a clear view of the interactions within the environment of Scrapy.
