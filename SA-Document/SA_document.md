@@ -521,12 +521,19 @@ Scrapy was originally designed for web scraping. With the update of versions, no
   
   From the analysis of the architecture of Scrapy, we have learned and firmly grasped how to use scrape in development in a series of analysis examples, which improves our ability to crawl data. What is more important is the experience to analysis from several architecture perspectives:
   In the **Stakeholder Analysis**, we discussed various roles of stakeholders involved in Scrapy. Core members take on numerous responsibilities of different roles. They maintain and promote Scrapy along with community contributors.
+  
   In the **Context View** showed the responsibilities and external entities that Scrapy uses. Therefore, readers could get a clear view of the interactions within the environment of Scrapy.
+  
   In the **Development View**, design principles, code organization and model organization of Scrapy were discussed in details. Based on Scrapy's clear principle, Scrapy provides a elegant way to write an efficient crawl program.
+  
   In the **Deployment View** gave a description of the environment where Scrapy would be deployed. Various third-party software requirements were introduced in details to help programmers to set up the developing environment.
+  
   In the **Functional View**, we showed several key features of Scrapy. These functionalities effectively increase the extensibility of the Scrapy projects. And we display the internal structure and interaction between implementation modules and some external interfaces in setting.
+  
   In the **Performance Perspective**, a more detailed view of its architecture was displayed. Performance of Scrapy is relatively good in comparison with its competitors. Performance is the key quality attribute of the spectrum, and we also discussed the architecture of implementing this quality attribute in detail.
+  
   In the **Technical Debt section**, we used tools to analyze technical debts within Scrapy such as code duplication, testing debt and so on. There were still minor errors in static code analysis. Meanwhile, Scrapy performed beyond expectation in the code coverage analysis.
+  
   In the **Evolution Perspective**, we summarized and analyzed feature evolution of Scrapy by comparing its changes among different releases, which helps us understand its core design and architecture.
 
 
